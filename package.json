@@ -1,6 +1,6 @@
 {
-  "name": "my-project",
-  "version": "0.1.0",
+  "name": "vue-fifa-project",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -30,5 +30,25 @@
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.5.21"
-  }
+  },
+  "description": "## Project setup ``` npm install ```",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gediminas-Luksas/vue-school-project.git"
+  },
+  "keywords": [
+    "Vue",
+    "js",
+    "profect"
+  ],
+  "author": "Gediminas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gediminas-Luksas/vue-school-project/issues"
+  },
+  "homepage": "https://github.com/Gediminas-Luksas/vue-school-project#readme"
 }
