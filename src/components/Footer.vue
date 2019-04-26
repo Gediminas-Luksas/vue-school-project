@@ -1,7 +1,9 @@
 <template>
+  <div class="footer">
   <footer>
-    Copyright © Fifa World Cup in 2019
-  </footer>
+		Copyright © Fifa World Cup in 2019
+	</footer>
+  </div>
 </template>
 
 <script>
@@ -11,6 +13,9 @@ export default {
 </script>
 
 <style>
+.footer{
+  padding: 30px 0;
+}
 footer {
     font-family: 'Merriweather', serif;
     font-size: 16px;

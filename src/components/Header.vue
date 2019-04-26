@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <h1>Fifa World Cup in 2019</h1>
-      <p>Burtų traukimas prasideda <a href="/login">Čia</a></p>
+      <p>Burtų traukimas prasideda <router-link to="/login">Čia</router-link></p>
     </div>
   </div>
 </template>

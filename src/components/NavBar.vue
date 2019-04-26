@@ -1,16 +1,17 @@
 <template>
   <div>
     <div class="topnav">
-      <a href="/">Home</a>
-      <a href="/rules">Rules</a>
-      <a href="/login">Login</a>
-      <a href="/register">Register</a>
-    </div>
+				<router-link to="/">News</router-link>
+				<router-link to="/rules">Rules</router-link>
+				<router-link to="/login">Login</router-link>
+				<router-link to="/register">Register</router-link>
+    	</div>
   </div>
 </template>
 
 <script>
 export default {
+
 }
 </script>
 
@@ -19,6 +20,8 @@ export default {
   font-family: 'Merriweather', serif;
   overflow: hidden;
   background-color: rgba(6, 50, 104, 0.8);
+  width: 100%;
+  top: 0;
 }
 
 .topnav a {
@@ -43,5 +46,4 @@ export default {
 .header h1 {
   font-size: 50px;
 }
-
 </style>
