@@ -4,7 +4,7 @@
     <input type="text" v-model="news.title" />
     <br>
     <label for="">Text News</label>
-    <input type="text" v-model="news.texts" />
+    <input type="textarea" v-model="news.texts" />
     <br>
     <button @click="addAPI">Create</button>
   </div>
@@ -29,7 +29,7 @@ export default {
       }
       console.log(newsPost)
       axios
-        .post('http://localhost:51515/news', newsPost)
+        .post('news', newsPost)
         .then(response => {
           console.log(response)
         })

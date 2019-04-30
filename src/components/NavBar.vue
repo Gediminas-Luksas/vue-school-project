@@ -1,25 +1,50 @@
 <template>
   <div>
     <div class="topnav">
-				<router-link to="/">News</router-link>
-				<router-link to="/rules">Rules</router-link>
-				<router-link to="/login">Login</router-link>
-				<router-link to="/register">Register</router-link>
-    	</div>
+      <router-link to="/">Home</router-link>
+      <router-link to="/rules">Rules</router-link>
+      <router-link v-if="auth==='l'" to="/login">Login</router-link>
+      <router-link v-if="auth==='l'" to="/register">Register</router-link>
+      <router-link v-if="auth==='loggedin'" to="/profile">Profile</router-link>
+      <router-link to="/templayer">Team & Player</router-link>
+      <a v-if="auth==='loggedin'" href="/" @click="logout">Logout</a>
+      <router-link v-if="auth==='loggedin'" to="/news">Post News</router-link>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
+import EventBus from "./EventBus"
 
+EventBus.$on("logged-in", test => {
+  console.log(test)
+});
+export default {
+  name: "NavBar",
+  data () {
+    return {
+      auth: "l",
+      user: ""
+    };
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem("usertoken")
+    }
+  },
+  mounted () {
+    EventBus.$on("logged-in", status => {
+      this.auth = status
+    })
+  }
 }
 </script>
 
-<style>
+<style scoped>
 .topnav {
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   overflow: hidden;
-  background-color: rgba(6, 50, 104, 0.8);
+  background-color: rgba(0, 0, 0, 0.822);
   width: 100%;
   top: 0;
 }
@@ -34,7 +59,7 @@ export default {
 }
 
 .topnav a:hover {
-  color: black;
+  color: rgba(99, 97, 97, 0.719);
 }
 
 .header {

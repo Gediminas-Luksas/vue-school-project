@@ -2,30 +2,31 @@
 	<div>
 		<Header />
 		<div class="container">
-		<div v-for="news in newsGet" :key="news.id">
-			{{ news.title }}
-			<div class="data">
-				{{ news.date }}
-			</div>
-			<hr>
-			<div class="row">
-				{{ news.texts }}
+			<div
+				class="border"
+				v-for="news in newsGet"
+				:key="news._id"
+			>
+				{{ news.title }}
+				<hr>
+				<div class="row">
+					{{ news.texts }}
+					<div class="data">
+					{{ news.date }}
+				</div>
+				</div>
 			</div>
 		</div>
-		</div>
-		<News />
 	</div>
 </template>
 
 <script>
 import axios from 'axios'
 import Header from '@/components/Header'
-import News from '@/components/News'
 export default {
 	name: 'HomeView',
 	components: {
-		Header,
-		News
+		Header
 	},
 	data () {
 		return {
@@ -33,37 +34,45 @@ export default {
 		}
 	},
 	created () {
-		axios.get('http://localhost:51515/news')
-				.then(response => {
-					this.newsGet = response.data
-        })
-        .catch(error => {
-          console.log(error)
-        })
+		axios.get('news')
+			.then(response => {
+				this.newsGet = response.data
+			})
+			.catch(error => {
+				console.log(error)
+			})
 	}
 }
 </script>
-<style>
+<style scoped>
 	.container{
 		font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-		padding: 35px 15px;
-		margin: 25px;
+		padding: 5px 15px;
+		margin: 50px 35px;
 		text-align: center;
 		font-size: 28px;
+		color: beige;
 		border: 1px solid rgb(168, 166, 166);
+	}
+	.border{
+		border: 1px solid rgb(168, 166, 166);
+		padding: 15px;
+		margin: 15px 5px;
 	}
 	.row{
 		font-family: 'Times New Roman', Times, serif;
 		padding: 20px;
-		text-align: center;
+		text-align: left;
 		font-size: 18px;
+		color: beige;
 	}
 	hr{
-		width: 30%;
+		width: 20%;
 	}
 	.data{
 		font-family:fantasy;
-		padding: 8px 0 0 0;
+		padding: 4px 0 0 0;
 		font-size: 14px;
+		text-align: right;
 	}
 </style>

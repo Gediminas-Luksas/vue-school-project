@@ -1,9 +1,12 @@
 <template>
-	<h1>Welcome User</h1>
+	<div>
+		<h1>Welcome User</h1>
+	</div>
 </template>
 
 <script>
+
 export default {
-	name: 'UserView'
+	name: 'ProfileView'
 }
 </script>

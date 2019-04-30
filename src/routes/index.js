@@ -1,8 +1,10 @@
 const Home = () => import(/* webpackChunkName: "welcome-view" */ '@/views/Home')
 const Rules = () => import(/* webpackChunkName: "welcome-view" */ '@/views/Rules')
-const User = () => import(/* webpackChunkName: "welcome-view" */ '@/views/User')
+const Profile = () => import(/* webpackChunkName: "welcome-view" */ '@/views/Profile')
 const Login = () => import(/* webpackChunkName: "welcome-view" */ '@/views/Login')
 const Register = () => import(/* webpackChunkName: "welcome-view" */ '@/views/Register')
+const News = () => import(/* webpackChunkName: "welcome-view" */ '@/views/News')
+const TeamPlayerTable = () => import(/* webpackChunkName: "welcome-view" */ '@/views/TeamPlayerTable')
 
 export default [
 	{
@@ -14,15 +16,25 @@ export default [
 		component: Rules
 	},
 	{
-		path: '/user',
-		component: User
+		path: '/profile',
+		name: 'Profile',
+		component: Profile
 	},
 	{
 		path: '/login',
+		name: 'Login',
 		component: Login
 	},
 	{
 		path: '/register',
 		component: Register
+	},
+	{
+		path: '/news',
+		component: News
+	},
+	{
+		path: '/templayer',
+		component: TeamPlayerTable
 	}
 ]
