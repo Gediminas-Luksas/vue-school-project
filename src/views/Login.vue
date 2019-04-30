@@ -1,28 +1,27 @@
 <template>
 	<div class="login">
-    <h1>Login</h1>
-    <form>
-      <input
-			type="text"
-			placeholder="Email"
-			required="required"
-			v-model="email"
-			/>
-      <input
-			type="password"
-			placeholder="Password"
-			required="required"
-			v-model="password"
-			/>
-      <button
-			class="btn"
-			type="submit"
-			@click="login"
+		<h1>Login</h1>
+		<form @submit.prevent="login">
+			<input
+				v-model="email"
+				type="text"
+				placeholder="Email"
+				required="required"
 			>
-			Let me in
+			<input
+				v-model="password"
+				type="password"
+				placeholder="Password"
+				required="required"
+			>
+			<button
+				class="btn"
+				type="submit"
+			>
+				Let me in
 			</button>
-    </form>
-  </div>
+		</form>
+	</div>
 </template>
 
 <script>
@@ -30,27 +29,27 @@ import axios from 'axios'
 import EventBus from '../components/EventBus'
 import router from '../routes'
 export default {
-  data () {
-    return {
-      email: '',
-      password: ''
-    }
-  },
+	data () {
+		return {
+			email: '',
+			password: ''
+		}
+	},
 
-  methods: {
-    login () {
-      axios.post('user/login', {
-        email: this.email,
-        password: this.password
-      }).then(res => {
-        localStorage.setItem('usertoken', res.data)
-        this.email = ''
-        this.password = ''
-        router.push({ name: 'Profile' })
+	methods: {
+		login () {
+			axios.post('user/login', {
+				email: this.email,
+				password: this.password
+			}).then(res => {
+				localStorage.setItem('usertoken', res.data.token)
+				this.email = ''
+				this.password = ''
+				this.emitMethod()
+				this.$router.push({ name: 'Profile' })
 			}).catch(err => {
 				console.log(err)
 			})
-			this.emitMethod()
 		},
 		emitMethod () {
 			EventBus.$emit('logged-in', 'loggedin')
@@ -68,16 +67,16 @@ export default {
   height: 300px;
 margin: -150px 0 0 -150px;
 }
-.login h1 { 
+.login h1 {
 	color: #fff;
 	text-shadow: 0 0 35px rgba(0,0,0,0.3);
 	letter-spacing:1px;
 	text-align:center;
 	}
 
-input { 
-    width: 100%; 
-    margin-bottom: 10px; 
+input {
+    width: 100%;
+    margin-bottom: 10px;
     background: rgba(0,0,0,0.3);
     border: none;
     outline: none;

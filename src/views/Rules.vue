@@ -1,11 +1,14 @@
 <template>
 	<div>
-	<div class="container">
-		<div v-for="rules in rulesGet" :key="rules._id">
-			{{ rules.title }}
-			<div class="row">
-				{{ rules.texts  }}
-			</div>
+		<div class="container">
+			<div
+				v-for="rules in rulesGet"
+				:key="rules._id"
+			>
+				{{ rules.title }}
+				<div class="row">
+					{{ rules.texts }}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -22,12 +25,12 @@ export default {
 	},
 	created () {
 		axios.get('http://localhost:51515/rules')
-				.then(response => {
-					this.rulesGet = response.data
-        })
-        .catch(error => {
-          console.log(error)
-        })
+			.then(response => {
+				this.rulesGet = response.data
+			})
+			.catch(error => {
+				console.log(error)
+			})
 	}
 }
 </script>

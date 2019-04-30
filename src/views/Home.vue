@@ -3,17 +3,17 @@
 		<Header />
 		<div class="container">
 			<div
-				class="border"
 				v-for="news in newsGet"
 				:key="news._id"
+				class="border"
 			>
 				{{ news.title }}
 				<hr>
 				<div class="row">
 					{{ news.texts }}
 					<div class="data">
-					{{ news.date }}
-				</div>
+						{{ news.date }}
+					</div>
 				</div>
 			</div>
 		</div>

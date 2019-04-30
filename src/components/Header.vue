@@ -1,10 +1,17 @@
 <template>
-  <div>
-    <div class="header">
-      <h1>Fifa World Cup in 2019</h1>
-      <p>Burtų traukimas prasideda <router-link class="link" to="/register">Čia</router-link></p>
-    </div>
-  </div>
+	<div>
+		<div class="header">
+			<h1>Fifa World Cup in 2019</h1>
+			<p>
+				Burtų traukimas prasideda <router-link
+					class="link"
+					to="/register"
+				>
+					Čia
+				</router-link>
+			</p>
+		</div>
+	</div>
 </template>
 
 <script>

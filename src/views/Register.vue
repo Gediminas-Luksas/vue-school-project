@@ -1,34 +1,34 @@
 <template>
-  <div class="login">
-    <h1>Register</h1>
-    <form>
-      <input
-			type="text"
-			placeholder="Username"
-			required="required"
-			v-model="userName"
-			/>
-      <input
-			type="text"
-			placeholder="Email"
-			required="required"
-			v-model="email"
-			/>
-      <input
-			type="password"
-			placeholder="Password"
-			required="required"
-			v-model="password"
-			/>
-      <button
-			class="btn"
-			type="submit"
-      @click="register"
+	<div class="login">
+		<h1>Register</h1>
+		<form>
+			<input
+				v-model="userName"
+				type="text"
+				placeholder="Username"
+				required="required"
 			>
-			Register
+			<input
+				v-model="email"
+				type="text"
+				placeholder="Email"
+				required="required"
+			>
+			<input
+				v-model="password"
+				type="password"
+				placeholder="Password"
+				required="required"
+			>
+			<button
+				class="btn"
+				type="submit"
+				@click="register"
+			>
+				Register
 			</button>
-    </form>
-  </div>
+		</form>
+	</div>
 </template>
 
 <script>
@@ -36,26 +36,26 @@ import axios from 'axios'
 import router from '../routes'
 
 export default {
-  data () {
-    return {
-      userName: '',
-      email: '',
-      password: ''
-    }
-  },
-  methods: {
-    register () {
-      axios.post('user/register', {
-        userName: this.userName,
-        email: this.email,
-        password: this.password
-      }).then(res => {
-        router.push({ name: 'Login' })
-      }).catch(err => {
-        console.log(err)
-      })
-    }
-  }
+	data () {
+		return {
+			userName: '',
+			email: '',
+			password: ''
+		}
+	},
+	methods: {
+		register () {
+			axios.post('user/register', {
+				userName: this.userName,
+				email: this.email,
+				password: this.password
+			}).then(res => {
+				this.$router.push({ name: 'Login' })
+			}).catch(err => {
+				console.log(err)
+			})
+		}
+	}
 }
 </script>
 <style scoped>
@@ -67,16 +67,16 @@ export default {
   height: 300px;
 margin: -150px 0 0 -150px;
 }
-.login h1 { 
+.login h1 {
 	color: #fff;
 	text-shadow: 0 0 35px rgba(0,0,0,0.3);
 	letter-spacing:1px;
 	text-align:center;
 	}
 
-input { 
-    width: 100%; 
-    margin-bottom: 10px; 
+input {
+    width: 100%;
+    margin-bottom: 10px;
     background: rgba(0,0,0,0.3);
     border: none;
     outline: none;

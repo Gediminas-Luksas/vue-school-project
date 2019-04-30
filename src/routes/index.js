@@ -5,6 +5,7 @@ const Login = () => import(/* webpackChunkName: "welcome-view" */ '@/views/Login
 const Register = () => import(/* webpackChunkName: "welcome-view" */ '@/views/Register')
 const News = () => import(/* webpackChunkName: "welcome-view" */ '@/views/News')
 const TeamPlayerTable = () => import(/* webpackChunkName: "welcome-view" */ '@/views/TeamPlayerTable')
+const TeamPlayers = () => import(/* webpackChunkName: "welcome-view" */ '@/views/TeamPlayers')
 
 export default [
 	{
@@ -36,5 +37,9 @@ export default [
 	{
 		path: '/templayer',
 		component: TeamPlayerTable
+	},
+	{
+		path: '/team',
+		component: TeamPlayers
 	}
 ]

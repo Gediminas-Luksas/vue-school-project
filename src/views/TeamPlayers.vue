@@ -3,26 +3,26 @@
 		<form>
 			<div class="row">
 				<div class="col-25">
-					<label for="fname">News Title</label>
+					<label for="fname">Teams</label>
 				</div>
 				<div class="col-75">
 					<input
-						v-model="news.title"
+						v-model="teams.team"
 						type="text"
-						placeholder="Title..."
+						placeholder="Teams Name..."
 					>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-25">
-					<label for="subject">Subject</label>
+					<label for="fname">Players Name</label>
 				</div>
 				<div class="col-75">
-					<textarea
-						v-model="news.texts"
+					<input
+						v-model="teams.name"
 						type="text"
-						placeholder="Write something.."
-					/>
+						placeholder="Palayes Name..."
+					>
 				</div>
 			</div>
 			<div class="row">
@@ -41,21 +41,21 @@ import axios from 'axios'
 export default {
 	data () {
 		return {
-			news: {
-				title: '',
-				texts: ''
+			teams: {
+				team: '',
+				name: ''
 			}
 		}
 	},
 	methods: {
 		addAPI () {
-			let newsPost = {
-				title: this.news.title,
-				texts: this.news.texts
+			let teamPost = {
+				team: this.teams.team,
+				name: this.teams.name
 			}
-			console.log(newsPost)
+			console.log(teamPost)
 			axios
-				.post('news', newsPost)
+				.post('teams', teamPost)
 				.then(response => {
 					console.log(response)
 				})
@@ -69,7 +69,7 @@ export default {
 
 <style scoped>
 input[type=text], select, textarea {
-  width: 100%;
+  width: 90%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -106,7 +106,6 @@ input[type=submit]:hover {
   width: 15%;
   margin-top: 6px;
 }
-
 .col-75 {
   float: left;
   width: 70%;

@@ -1,7 +1,7 @@
 <template>
-  <footer>
+	<footer>
 		Copyright © Fifa World Cup in 2019
-  </footer>
+	</footer>
 </template>
 
 <script>
